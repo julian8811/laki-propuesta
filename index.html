@@ -926,7 +926,11 @@ h1, h2, h3, h4 {
 <div id="imageLightbox" class="lightbox">
   <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
   <img class="lightbox-content" id="lightboxImg">
-  <div id="lightboxCaption" class="lightboxconst physicalColors = {
+  <div id="lightboxCaption" class="lightbox-caption"></div>
+</div>
+
+<script>
+const physicalColors = {
   "Amarillo": "#f4c749",
   "Azul": "#022bac",
   "Gris": "#8e8e93",
@@ -950,13 +954,13 @@ const products = [
     "benefit": "Buena compra sin comprar de más.",
     "img": "imagenes Laki/correa 1.webp",
     "variants": {
-      "Amarillo": "Correas/Amarillo.png",
-      "Azul": "Correas/Azul.png",
-      "Gris": "Correas/Gris.png",
-      "Negro": "Correas/Negro.png",
-      "Ocre": "Correas/Ocre.png",
-      "Rojo": "Correas/Roja.png",
-      "Verde": "Correas/Verde.png"
+      "Amarillo": "Correas/Amarillo.webp",
+      "Azul": "Correas/Azul.webp",
+      "Gris": "Correas/Gris.webp",
+      "Negro": "Correas/Negro.webp",
+      "Ocre": "Correas/Ocre.webp",
+      "Rojo": "Correas/Roja.webp",
+      "Verde": "Correas/Verde.webp"
     }
   },
   {
@@ -969,12 +973,12 @@ const products = [
     "benefit": "Versatilidad comprobable.",
     "img": "imagenes Laki/correa 2.webp",
     "variants": {
-      "Amarillo": "multiusos/Amarillo.png",
-      "Azul": "multiusos/Azul.png",
-      "Gris": "multiusos/Gris.png",
-      "Negro": "multiusos/Negro.png",
-      "Ocre": "multiusos/Ocre.png",
-      "Verde": "multiusos/Verde.png"
+      "Amarillo": "multiusos/Amarillo.webp",
+      "Azul": "multiusos/Azul.webp",
+      "Gris": "multiusos/Gris.webp",
+      "Negro": "multiusos/Negro.webp",
+      "Ocre": "multiusos/Ocre.webp",
+      "Verde": "multiusos/Verde.webp"
     }
   },
   {
@@ -1007,13 +1011,13 @@ const products = [
     "benefit": "Lo necesario bien resuelto.",
     "img": "imagenes Laki/Arnés básico ajustable Laki.webp",
     "variants": {
-      "Azul": "Arnes en H/Azul.png",
-      "Gris": "Arnes en H/Gris.png",
-      "Naranja": "Arnes en H/Naranja.png",
-      "Negro": "Arnes en H/Negro.png",
-      "Ocre": "Arnes en H/Ocre.png",
-      "Rojo": "Arnes en H/Rojo.png",
-      "Verde": "Arnes en H/Verde.png"
+      "Azul": "Arnes en H/Azul.webp",
+      "Gris": "Arnes en H/Gris.webp",
+      "Naranja": "Arnes en H/Naranja.webp",
+      "Negro": "Arnes en H/Negro.webp",
+      "Ocre": "Arnes en H/Ocre.webp",
+      "Rojo": "Arnes en H/Rojo.webp",
+      "Verde": "Arnes en H/Verde.webp"
     }
   },
   {
@@ -1026,13 +1030,13 @@ const products = [
     "benefit": "Tranquilidad y control.",
     "img": "imagenes Laki/Arnés ajuste seguro Laki.webp",
     "variants": {
-      "Azul": "Arnes completo/Azul.png",
-      "Beige": "Arnes completo/Beigh.png",
-      "Gris": "Arnes completo/Gris.png",
-      "Naranja": "Arnes completo/Naranja.png",
-      "Negro": "Arnes completo/Negro.png",
-      "Ocre": "Arnes completo/Ocre.png",
-      "Verde": "Arnes completo/Verde.png"
+      "Azul": "Arnes completo/Azul.webp",
+      "Beige": "Arnes completo/Beigh.webp",
+      "Gris": "Arnes completo/Gris.webp",
+      "Naranja": "Arnes completo/Naranja.webp",
+      "Negro": "Arnes completo/Negro.webp",
+      "Ocre": "Arnes completo/Ocre.webp",
+      "Verde": "Arnes completo/Verde.webp"
     }
   },
   {
@@ -1051,7 +1055,7 @@ const products = [
     "category": "Arneses y pecheras",
     "audience": "Trend dad",
     "kit": "Kit Ciudad",
-    "desc": "Liviana, fresca y con silueta visual fuerte.",
+    "desc": "Liviana, fresca and con silueta visual fuerte.",
     "benefit": "Comodidad con estilo.",
     "img": "imagenes Laki/arnes 4.webp"
   },
@@ -1075,12 +1079,12 @@ const products = [
     "benefit": "Básico confiable.",
     "img": "imagenes Laki/collar 1.webp",
     "variants": {
-      "Amarillo": "Collares/Amarillo.png",
-      "Azul": "Collares/Azul.png",
-      "Gris": "Collares/Gris.png",
-      "Naranja": "Collares/Naranja.png",
-      "Negro": "Collares/Negro.png",
-      "Rojo": "Collares/Rojo.png"
+      "Amarillo": "Collares/Amarillo.webp",
+      "Azul": "Collares/Azul.webp",
+      "Gris": "Collares/Gris.webp",
+      "Naranja": "Collares/Naranja.webp",
+      "Negro": "Collares/Negro.webp",
+      "Rojo": "Collares/Rojo.webp"
     }
   },
   {
@@ -1103,12 +1107,12 @@ const products = [
     "benefit": "Seguridad con estética.",
     "img": "imagenes Laki/collar 1.webp",
     "variants": {
-      "Amarillo": "Collares/Amarillo.png",
-      "Azul": "Collares/Azul.png",
-      "Gris": "Collares/Gris.png",
-      "Naranja": "Collares/Naranja.png",
-      "Negro": "Collares/Negro.png",
-      "Rojo": "Collares/Rojo.png"
+      "Amarillo": "Collares/Amarillo.webp",
+      "Azul": "Collares/Azul.webp",
+      "Gris": "Collares/Gris.webp",
+      "Naranja": "Collares/Naranja.webp",
+      "Negro": "Collares/Negro.webp",
+      "Rojo": "Collares/Rojo.webp"
     }
   },
   {
@@ -1121,13 +1125,13 @@ const products = [
     "benefit": "Pequeño, útil y accesible.",
     "img": "imagenes Laki/porta bolsas.webp",
     "variants": {
-      "Amarillo": "Portabolsas/Amarillo.png",
-      "Azul": "Portabolsas/Azul.png",
-      "Gris": "Portabolsas/Gris.png",
-      "Negro": "Portabolsas/Negra.png",
-      "Verde": "Portabolsas/Verde.png",
-      "Beige": "Portabolsas/beigh.png",
-      "Rojo": "Portabolsas/roja.png"
+      "Amarillo": "Portabolsas/Amarillo.webp",
+      "Azul": "Portabolsas/Azul.webp",
+      "Gris": "Portabolsas/Gris.webp",
+      "Negro": "Portabolsas/Negra.webp",
+      "Verde": "Portabolsas/Verde.webp",
+      "Beige": "Portabolsas/beigh.webp",
+      "Rojo": "Portabolsas/roja.webp"
     }
   },
   {
@@ -1150,7 +1154,7 @@ const products = [
     "benefit": "Hidratación en paseo.",
     "img": "imagenes Laki/Bowl plegable Laki.webp",
     "variants": {
-      "Azul": "Bolw agua.png"
+      "Azul": "Bolw agua.webp"
     }
   },
   {
@@ -1163,7 +1167,7 @@ const products = [
     "benefit": "Funcional y estético.",
     "img": "imagenes Laki/Botella con bowl integrado Laki.webp",
     "variants": {
-      "Azul": "termo + bolw.png"
+      "Azul": "termo + bolw.webp"
     }
   },
   {
@@ -1176,13 +1180,13 @@ const products = [
     "benefit": "Práctica y absorbente.",
     "img": "imagenes Laki/Toalla compacta de paseo Laki.webp",
     "variants": {
-      "Amarillo": "Toallas/Amarilla.png",
-      "Azul": "Toallas/Azul.png",
-      "Gris": "Toallas/Gris.png",
-      "Negro": "Toallas/Negro.png",
-      "Ocre": "Toallas/Ocre.png",
-      "Rojo": "Toallas/Rojo.png",
-      "Verde": "Toallas/Verde.png"
+      "Amarillo": "Toallas/Amarilla.webp",
+      "Azul": "Toallas/Azul.webp",
+      "Gris": "Toallas/Gris.webp",
+      "Negro": "Toallas/Negro.webp",
+      "Ocre": "Toallas/Ocre.webp",
+      "Rojo": "Toallas/Rojo.webp",
+      "Verde": "Toallas/Verde.webp"
     }
   },
   {
@@ -1213,10 +1217,10 @@ const products = [
     "kit": "Kit Validado",
     "desc": "Protector impermeable para cuidar el carro de suciedad, agua y pelos de tu perro.",
     "benefit": "Viajes limpios y cómodos.",
-    "img": "Protector.png",
+    "img": "Protector.webp",
     "variants": {
-      "Negro": "Protector.png",
-      "Colores": "Protectores-colores.png"
+      "Negro": "Protector.webp",
+      "Colores": "Protectores-colores.webp"
     }
   }
 ];
