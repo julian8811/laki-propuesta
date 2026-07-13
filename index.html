@@ -1244,7 +1244,7 @@ function renderProducts(){
     
     el.innerHTML = `
       <div class="imgwrap">
-        <img id="img-${p.id}" src="${displayImg}" alt="${p.name}" onclick="openLightbox(this.src, this.alt)" style="cursor: zoom-in;">
+        <img id="img-${p.id}" src="${encodeURI(displayImg)}" alt="${p.name}" onclick="openLightbox(this.src, this.alt)" style="cursor: zoom-in;">
       </div>
       <div class="card-body">
         <h3>${p.name}</h3>
@@ -1272,7 +1272,7 @@ function updatePreviewImg(src) {
   if (!src) return;
   previewImg.classList.add('fade-out');
   setTimeout(() => {
-    previewImg.src = src;
+    previewImg.src = encodeURI(src);
     previewImg.classList.remove('fade-out');
   }, 120);
 }
@@ -1282,7 +1282,7 @@ function changeCardColor(productId, colorName) {
   if (p && p.variants && p.variants[colorName]) {
     const imgEl = document.getElementById(`img-${productId}`);
     if (imgEl) {
-      imgEl.src = p.variants[colorName];
+      imgEl.src = encodeURI(p.variants[colorName]);
     }
     if (currentProduct.id === productId) {
       currentColorName = colorName;
@@ -1316,7 +1316,7 @@ function renderColors(){
         
         const gridImg = document.getElementById(`img-${currentProduct.id}`);
         if (gridImg) {
-          gridImg.src = currentProduct.variants[cName];
+          gridImg.src = encodeURI(currentProduct.variants[cName]);
         }
         
         renderColors(); 
