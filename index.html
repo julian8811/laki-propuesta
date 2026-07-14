@@ -952,7 +952,7 @@ const products = [
     "kit": "Kit Esencial",
     "desc": "Ligera, resistente y cómoda para el paseo diario.",
     "benefit": "Buena compra sin comprar de más.",
-    "img": "imagenes Laki/correa 1.webp",
+    "img": "Correas/Azul.webp",
     "variants": {
       "Amarillo": "Correas/Amarillo.webp",
       "Azul": "Correas/Azul.webp",
@@ -971,7 +971,7 @@ const products = [
     "kit": "Kit Validado",
     "desc": "Permite paseo largo, corto y doble punto de control.",
     "benefit": "Versatilidad comprobable.",
-    "img": "imagenes Laki/correa 2.webp",
+    "img": "multiusos/Azul.webp",
     "variants": {
       "Amarillo": "multiusos/Amarillo.webp",
       "Azul": "multiusos/Azul.webp",
@@ -1009,7 +1009,7 @@ const products = [
     "kit": "Kit Esencial",
     "desc": "Simple, cómodo y fácil de ajustar. Silueta clásica en H.",
     "benefit": "Lo necesario bien resuelto.",
-    "img": "imagenes Laki/Arnés básico ajustable Laki.webp",
+    "img": "Arnes en H/Azul.webp",
     "variants": {
       "Azul": "Arnes en H/Azul.webp",
       "Gris": "Arnes en H/Gris.webp",
@@ -1028,7 +1028,7 @@ const products = [
     "kit": "Kit Validado",
     "desc": "Ajuste de mayor precisión y distribución de presión.",
     "benefit": "Tranquilidad y control.",
-    "img": "imagenes Laki/Arnés ajuste seguro Laki.webp",
+    "img": "Arnes completo/Azul.webp",
     "variants": {
       "Azul": "Arnes completo/Azul.webp",
       "Beige": "Arnes completo/Beigh.webp",
@@ -1077,7 +1077,7 @@ const products = [
     "kit": "Kit Validado",
     "desc": "Collar regulable con herraje firme y etiqueta visible.",
     "benefit": "Básico confiable.",
-    "img": "imagenes Laki/collar 1.webp",
+    "img": "Collares/Azul.webp",
     "variants": {
       "Amarillo": "Collares/Amarillo.webp",
       "Azul": "Collares/Azul.webp",
@@ -1105,7 +1105,7 @@ const products = [
     "kit": "Kit Ciudad",
     "desc": "Visibilidad discreta para caminatas de tarde o noche.",
     "benefit": "Seguridad con estética.",
-    "img": "imagenes Laki/collar 1.webp",
+    "img": "Collares/Azul.webp",
     "variants": {
       "Amarillo": "Collares/Amarillo.webp",
       "Azul": "Collares/Azul.webp",
@@ -1123,7 +1123,7 @@ const products = [
     "kit": "Kit Esencial",
     "desc": "Se engancha a la correa y mantiene la rutina ordenada.",
     "benefit": "Pequeño, útil y accesible.",
-    "img": "imagenes Laki/porta bolsas.webp",
+    "img": "Portabolsas/Azul.webp",
     "variants": {
       "Amarillo": "Portabolsas/Amarillo.webp",
       "Azul": "Portabolsas/Azul.webp",
@@ -1152,7 +1152,7 @@ const products = [
     "kit": "Kit Esencial",
     "desc": "Liviano, plegable y fácil de llevar.",
     "benefit": "Hidratación en paseo.",
-    "img": "imagenes Laki/Bowl plegable Laki.webp",
+    "img": "Bolw agua.webp",
     "variants": {
       "Azul": "Bolw agua.webp"
     }
@@ -1165,7 +1165,7 @@ const products = [
     "kit": "Kit Ciudad",
     "desc": "Hidratación práctica para paseos urbanos.",
     "benefit": "Funcional y estético.",
-    "img": "imagenes Laki/Botella con bowl integrado Laki.webp",
+    "img": "termo + bolw.webp",
     "variants": {
       "Azul": "termo + bolw.webp"
     }
@@ -1178,7 +1178,7 @@ const products = [
     "kit": "Kit Esencial",
     "desc": "Para patas, lluvia y el regreso a casa.",
     "benefit": "Práctica y absorbente.",
-    "img": "imagenes Laki/Toalla compacta de paseo Laki.webp",
+    "img": "Toallas/Azul.webp",
     "variants": {
       "Amarillo": "Toallas/Amarilla.webp",
       "Azul": "Toallas/Azul.webp",
@@ -1242,8 +1242,11 @@ function renderProducts(){
     el.className = 'card';
     
     let displayImg = p.img;
-    if (p.variants && currentColorName && p.variants[currentColorName] && p.id === currentProduct.id) {
-      displayImg = p.variants[currentColorName];
+    if (p.variants) {
+      const activeColor = p.selectedColor || Object.keys(p.variants)[0];
+      if (p.variants[activeColor]) {
+        displayImg = p.variants[activeColor];
+      }
     }
     
     el.innerHTML = `
@@ -1284,6 +1287,7 @@ function updatePreviewImg(src) {
 function changeCardColor(productId, colorName) {
   const p = products.find(prod => prod.id === productId);
   if (p && p.variants && p.variants[colorName]) {
+    p.selectedColor = colorName;
     const imgEl = document.getElementById(`img-${productId}`);
     if (imgEl) {
       imgEl.src = encodeURI(p.variants[colorName]);
@@ -1338,10 +1342,9 @@ function selectProduct(id){
   
   if (currentProduct.variants) {
     const keys = Object.keys(currentProduct.variants);
-    if (!keys.includes(currentColorName)) {
-      currentColorName = keys[0];
-    }
-    updatePreviewImg(currentProduct.variants[currentColorName] || currentProduct.img);
+    const activeColor = currentProduct.selectedColor || keys[0];
+    currentColorName = activeColor;
+    updatePreviewImg(currentProduct.variants[activeColor]);
   } else {
     currentColorName = "";
     updatePreviewImg(currentProduct.img);
